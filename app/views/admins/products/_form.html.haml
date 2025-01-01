@@ -1,0 +1,11 @@
+.container.mt-4
+  .card
+    .card-body
+      = simple_form_for [:admins, product] do |f|
+        = render 'admins/shared/error_messages', resource: product
+        = f.input :name
+        = f.input :price
+        = f.input :description
+        = f.input :position
+        .mt-2.text-center
+          = f.button :submit, class: "btn btn-primary mt-2"
