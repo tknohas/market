@@ -16,7 +16,13 @@
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
     = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-lg.bg-body-tertiary
+    - if notice
+      .alert.alert-success.mb-0
+        = notice
+    - if alert
+      .alert.alert-danger.mb-0
+        = alert
+    %nav.navbar.navbar-expand-lg.bg-body-tertiary.mb-4
       .container-fluid
         = link_to 'さくらマーケット', root_path, class: 'navbar-brand'
         %button.navbar-toggler
