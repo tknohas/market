@@ -11,7 +11,6 @@ class Admins::Products::PublishedsController < Admins::ApplicationController
     redirect_to admins_product_path(@product), notice: '商品を非公開にしました'
   end
 
-
   private
 
   def set_product
