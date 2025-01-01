@@ -19,7 +19,7 @@
                 %p.card-text.text-start= @product.description
         .card-footer
           .d-flex.justify-content-between
-            -# - if @product.published_at.present?
-            -#   = button_to '非公開にする', admins_product_publish_path(@product), method: :delete, data: { turbo_confirm: '非公開にしますか？' }, class: 'btn btn-outline-danger'
-            -# - else
-            -#   = button_to '公開する', admins_product_publish_path(@product), method: :patch, data: { turbo_confirm: '公開しますか？' }, class: 'btn btn-outline-primary'
+            - if @product.published_at.present?
+              = button_to '非公開にする', admins_product_published_path(@product), method: :delete, data: { turbo_confirm: '非公開にしますか？' }, class: 'btn btn-outline-danger'
+            - else
+              = button_to '公開する', admins_product_published_path(@product), method: :post, data: { turbo_confirm: '公開しますか？' }, class: 'btn btn-outline-primary'
