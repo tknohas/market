@@ -1,0 +1,49 @@
+ja:
+  activerecord:
+    models:
+      product: 商品
+      address: 住所
+      cart_item: カート商品
+      purchase: 購入
+    attributes:
+      product:
+        name: 商品名
+        price: 価格
+        description: 商品説明
+        position: 表示順
+        image: 商品画像
+      address:
+        zip_code: 郵便番号
+        prefecture: 都道府県
+        city: 市区町村
+        street: それ以降の住所
+        building: 建物名
+      cart_item:
+        quantity: 商品数
+      purchase:
+        delivery_on: 配達日
+        delivery_time: 配達時間
+    errors:
+      models:
+        product:
+          attributes:
+            name:
+              blank: "を入力してください"
+            description:
+              blank: "を入力してください"
+            position:
+              not_a_number: "には数字を入力してください"
+  number:
+    currency:
+      format:
+        unit: "円"
+        format: "%n%u"
+        delimiter: ","
+        precision: 0
+  views:
+    pagination:
+      previous: "前へ"
+      next: "次へ"
+      truncate: "..."
+      last: "最後へ"
+      first: "最初へ"

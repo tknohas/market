@@ -18,6 +18,7 @@ gem 'thruster', require: false
 gem 'turbo-rails'
 # gem "image_processing", "~> 1.2"
 
+gem 'acts_as_list'
 gem 'devise'
 gem 'haml-rails'
 gem 'html2haml'

@@ -1,0 +1,19 @@
+ja:
+  helpers:
+    submit:
+      create: '登録する'
+      update: '更新する'
+      submit: '保存する'
+  simple_form:
+    labels:
+      person:
+        name: 'ユーザー名'
+        age: '年齢'
+    hints:
+      person:
+        name: 'サインインするユーザ名を入力してください'
+        age: '年齢を入力してください'
+    placeholders:
+      person:
+        name: 'ユーザー名'
+        age: '年齢'
