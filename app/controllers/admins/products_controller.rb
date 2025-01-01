@@ -22,7 +22,6 @@ class Admins::ProductsController < Admins::ApplicationController
   end
 
   def edit
-    @product
   end
 
   def update
