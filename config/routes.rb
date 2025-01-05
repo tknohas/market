@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'products#index'
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   namespace :admins do
@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations',
   }
+  resources :products, only: %i[index show]
 end
