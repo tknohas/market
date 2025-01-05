@@ -39,4 +39,16 @@ class Cart < ApplicationRecord
   def tax_price
     total_price - total_exclude_tax
   end
+
+  def merge_cart(session_cart)
+    return unless session_cart
+
+    transaction do
+      session_cart.cart_items.each do |session_item|
+        existing_item = cart_items.find_or_initialize_by(product_id: session_item.product_id)
+        existing_item.quantity += session_item.quantity
+        existing_item.save!
+      end
+    end
+  end
 end
