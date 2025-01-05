@@ -8,7 +8,6 @@ class Product < ApplicationRecord
   has_many :purchase_items, dependent: :destroy
   has_many :purchases, through: :purchase_items
 
-
   acts_as_list
 
   validates :name, presence: true, length: { maximum: 50 }
