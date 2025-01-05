@@ -3,6 +3,8 @@ class Product < ApplicationRecord
     attachable.variant :small, resize_to_limit: [100, 100], preprocessed: true
     attachable.variant :large, resize_to_limit: [300, 300], preprocessed: true
   end
+  has_many :cart_items, dependent: :destroy
+  has_many :carts, through: :cart_items
 
   acts_as_list
 
