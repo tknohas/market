@@ -16,12 +16,12 @@ gem 'solid_queue'
 gem 'stimulus-rails'
 gem 'thruster', require: false
 gem 'turbo-rails'
-# gem "image_processing", "~> 1.2"
 
 gem 'acts_as_list'
 gem 'devise'
 gem 'haml-rails'
 gem 'html2haml'
+gem 'image_processing'
 gem 'simple_form'
 
 group :development, :test do
