@@ -29,6 +29,7 @@
           %span.navbar-toggler-icon
         #navbarNavAltMarkup.collapse.navbar-collapse
           .navbar-nav.ms-auto
+            = link_to 'カート', cart_path, class: 'text-decoration-none text-black me-2 mt-1'
             - if current_user
               = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger'
 
