@@ -31,6 +31,10 @@
           .navbar-nav.ms-auto
             = link_to 'カート', cart_path, class: 'text-decoration-none text-black me-2 mt-1'
             - if current_user
+              - if current_user.address.present?
+                = link_to '住所編集', edit_address_path, class: 'text-decoration-none text-black me-2 mt-1'
+              - else
+                = link_to '住所登録', new_address_path, class: 'text-decoration-none text-black me-2 mt-1'
               = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger'
 
 
