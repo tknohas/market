@@ -7,4 +7,9 @@ Rails.application.routes.draw do
       resource :published, only: %i[create destroy], module: :products
     end
   end
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+  }
 end
