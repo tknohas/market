@@ -40,7 +40,7 @@ class Admins::ProductsController < Admins::ApplicationController
   private
 
   def product_params
-    params.expect(product: %i[name price description position description published_at])
+    params.expect(product: %i[name price description position description published_at image])
   end
 
   def set_product

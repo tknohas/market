@@ -1,4 +1,9 @@
 class Product < ApplicationRecord
+  has_one_attached :image do |attachable|
+    attachable.variant :small, resize_to_limit: [100, 100], preprocessed: true
+    attachable.variant :large, resize_to_limit: [300, 300], preprocessed: true
+  end
+
   acts_as_list
 
   validates :name, presence: true, length: { maximum: 50 }
