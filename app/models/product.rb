@@ -5,6 +5,9 @@ class Product < ApplicationRecord
   end
   has_many :cart_items, dependent: :destroy
   has_many :carts, through: :cart_items
+  has_many :purchase_items, dependent: :destroy
+  has_many :purchases, through: :purchase_items
+
 
   acts_as_list
 

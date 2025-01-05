@@ -16,4 +16,5 @@ Rails.application.routes.draw do
     resources :cart_items, only: %i[create update destroy], module: :products
   end
   resource :cart, only: %i[show]
+  resources :purchases, only: %i[new create]
 end
