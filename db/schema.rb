@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_01_05_072347) do
+ActiveRecord::Schema[8.0].define(version: 2025_01_05_120715) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -82,6 +82,32 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_05_072347) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "purchase_items", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "purchase_id", null: false
+    t.string "name", null: false
+    t.integer "price", null: false
+    t.integer "quantity", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id", "purchase_id"], name: "index_purchase_items_on_product_id_and_purchase_id", unique: true
+    t.index ["product_id"], name: "index_purchase_items_on_product_id"
+    t.index ["purchase_id"], name: "index_purchase_items_on_purchase_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "subtotal", null: false
+    t.integer "shipping_fee", null: false
+    t.integer "delivery_fee", null: false
+    t.integer "tax", null: false
+    t.float "tax_rate", null: false
+    t.integer "total_price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
@@ -100,4 +126,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_01_05_072347) do
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "products"
   add_foreign_key "carts", "users"
+  add_foreign_key "purchase_items", "products"
+  add_foreign_key "purchase_items", "purchases"
+  add_foreign_key "purchases", "users"
 end
