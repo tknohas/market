@@ -1,0 +1,17 @@
+%h2.text-center ログイン
+
+.container.mt-4
+  .card
+    .card-body
+      = simple_form_for(resource, as: resource_name, url: user_session_path) do |f|
+        = f.input :email,
+          required: false,
+          autofocus: true,
+          input_html: { autocomplete: "email" }
+        = f.input :password,
+          required: false,
+          input_html: { autocomplete: "current-password" }
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        .text-center
+          = f.button :submit, 'ログインする', class: 'btn btn-primary'
+  = render 'users/shared/links'

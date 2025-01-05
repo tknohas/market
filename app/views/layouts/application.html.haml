@@ -28,10 +28,9 @@
         %button.navbar-toggler
           %span.navbar-toggler-icon
         #navbarNavAltMarkup.collapse.navbar-collapse
-          .navbar-nav
-            %a.nav-link.active{"aria-current" => "page", href: "#"} Home
-            %a.nav-link{href: "#"} Features
-            %a.nav-link{href: "#"} Pricing
-            %a.nav-link.disabled Disabled
+          .navbar-nav.ms-auto
+            - if current_user
+              = button_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger'
+
 
     = yield
